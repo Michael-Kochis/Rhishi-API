@@ -19,10 +19,9 @@ const verifyUserPayload = (req, res, next) => {
 
     if (!neoUser.username || typeof(neoUser.username) !== "string"
         || !neoUser.password || typeof(neoUser.password) !== "string"
-        || !neoUser.phoneNumber 
-        || typeof(neoUser.phoneNumber) !== "string" ) {
+       ) {
         res.status(400).json({ 
-            message: "username, password, and phoneNumber all required" 
+            message: "username and password required" 
         });
     } else {
         next();
