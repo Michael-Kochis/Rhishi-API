@@ -22,11 +22,11 @@ server.get("/", (req,res) => {
     res.json({message: "Yip, yip, Appa!"});
 })
 
-server.use("*", (req, res) => {
-    res.status(404).json({
-        message: "That endpoint is not set up yet."
-    })
-})
+// server.use("*", (req, res) => {
+//     res.status(404).json({
+//         message: "That endpoint is not set up yet."
+//     })
+// })
 
 server.use((err, req, res, next) => {
     const status = err.status || 500;
