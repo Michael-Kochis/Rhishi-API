@@ -34,7 +34,6 @@ async function findPersonaByID(key) {
 async function findPersonaByOwnerID(key) { 
     return await db("persona")
         .where({ownerID: key})
-        .first();
 }
 
 //removePersona
