@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const authRouter = require('./auth/auth-routes');
+const personaRouter = require('./persona/persona-router');
 const userRouter = require('./users/users-router');
 
 const { logger } = require('./logger/logger');
@@ -17,16 +18,17 @@ server.use(logger);
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", [verifyToken], userRouter);
+server.use("/api/persona", [verifyToken], personaRouter);
 
 server.get("/", (req,res) => {
     res.json({message: "Yip, yip, Appa!"});
 })
 
-// server.use("*", (req, res) => {
-//     res.status(404).json({
-//         message: "That endpoint is not set up yet."
-//     })
-// })
+server.use("*", (req, res) => {
+    res.status(404).json({
+        message: "That endpoint is not set up yet."
+    })
+})
 
 server.use((err, req, res, next) => {
     const status = err.status || 500;
