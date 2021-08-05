@@ -16,7 +16,7 @@ async function registerUser(neoUser) {
 
 // findAll
 async function findUsers() {
-    return await db("users");
+    return await db("users", ['userID', 'username']);
 }
 
 // findByID
