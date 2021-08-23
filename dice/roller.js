@@ -1,11 +1,3 @@
-const d4 = rollDie(4);
-const d6 = rollDie(6);
-const d8 = rollDie(8);
-const d10 = rollDie(10);
-const d12 = rollDie(12);
-const d20 = rollDie(20);
-const d100 = rollDie(100);
-
 const dice = (sides, number) => {
     let rolls = [];
     for (i=0; i<number; i++) {
@@ -27,6 +19,14 @@ const diceTotal = (sides, number) => {
 const rollDie = (sides) => {
     return Math.floor(Math.random() * sides) + 1
 }
+
+const d4 = rollDie(4);
+const d6 = rollDie(6);
+const d8 = rollDie(8);
+const d10 = rollDie(10);
+const d12 = rollDie(12);
+const d20 = rollDie(20);
+const d100 = rollDie(100);
 
 moudule.exports = {
     dice, 
