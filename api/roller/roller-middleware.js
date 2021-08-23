@@ -1,5 +1,5 @@
 
-const validDice = (req, res, next) => {
+function validDice(req, res, next) {
     const {sides, number} = req.body;
 
     if ((!sides) || (sides <= 0)) {
