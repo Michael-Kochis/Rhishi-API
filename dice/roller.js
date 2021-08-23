@@ -28,7 +28,7 @@ const d12 = rollDie(12);
 const d20 = rollDie(20);
 const d100 = rollDie(100);
 
-moudule.exports = {
+module.exports = {
     dice, 
     rollDie
 }
