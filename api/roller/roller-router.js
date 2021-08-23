@@ -5,13 +5,13 @@ const router = express.Router();
 
 const {validDice} = require('./roller-middleware');
 
-router.post("/", validDice, (req, res, next) => {
+router.post('/', [validDice], (req, res, next) => {
     const {sides, number} = req.body;
 
-    const result = dice(sides, number);
+    const result = roller.dice(sides, number);
     res.status(200).json({sides, number, result})
+
+    if (1 == 0) next();
 })
 
-module.exports = {
-    router
-}
+module.exports = router;

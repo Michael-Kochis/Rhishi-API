@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { TOKEN_SECRET } = require('../../config/secrets');
 
-function getUserID(req, res, next) {
+function getUserID(req, res) {
     let neoID =0 
     if (req) {
         if (req.headers && req.headers.authorization) {
@@ -38,6 +38,7 @@ function verifyToken(req, res, next) {
     } else { 
         res.status(401).json({ message: "improper or expired auth token"})
     }
+    next();
 }
 
 module.exports = {
