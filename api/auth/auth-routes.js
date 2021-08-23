@@ -44,7 +44,7 @@ router.post('/register', [verifyUserPayload], (req, res, next) => {
         }).catch(next);
 })
 
-router.post("/testToken", verifyToken, (req, res, next) => {
+router.post("/testToken", [verifyToken], (req, res, next) => {
     res.status(200).json({ message: "Proper token detected." });
 })
 
