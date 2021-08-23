@@ -5,7 +5,7 @@ const router = express.Router();
 
 const {validDice} = require('./roller-middleware');
 
-router.post("/", [validDice], (req, res, next) => {
+router.post("/", validDice, (req, res, next) => {
     const {sides, number} = req.body;
 
     const result = dice(sides, number);
