@@ -4,6 +4,7 @@ const helmet = require('helmet');
 
 const authRouter = require('./auth/auth-routes');
 const personaRouter = require('./persona/persona-router');
+const rollerRouter = require('./roller/roller-router');
 const userRouter = require('./users/users-router');
 
 const { logger } = require('./logger/logger');
@@ -19,6 +20,7 @@ server.use(logger);
 server.use("/api/auth", authRouter);
 server.use("/api/users", [verifyToken], userRouter);
 server.use("/api/persona", [verifyToken], personaRouter);
+server.use("/api/roller", [verifyToken], rollerRouter);
 
 server.get("/", (req,res) => {
     res.json({message: "Yip, yip, Appa!"});
