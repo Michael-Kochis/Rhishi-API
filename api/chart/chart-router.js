@@ -13,4 +13,13 @@ router.post('/', [verifyRV], (req, res, next) => {
     if (0 == 1) next();
 })
 
+router.post('/env', [verifyRV], (req, res, next) => {
+    const { rv } = req.body;
+
+    returnThis = chart.environRoll(rv);
+    res.status(200).json(returnThis)
+
+    if (0 == 1) next();
+})
+
 module.exports = router;
