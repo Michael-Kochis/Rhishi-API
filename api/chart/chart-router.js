@@ -1,10 +1,10 @@
 const express = require('express');
 
 const chart = require('./chart-model');
-//const {verifyRV} = require('./chart-middleware');
+const {verifyRV} = require('./chart-middleware');
 const router = express.Router();
 
-router.post('/', (req, res, next) => {
+router.post('/', [verifyRV], (req, res, next) => {
     const { rv } = req.body;
 
     returnThis = chart.chartRoll(rv);
