@@ -6,11 +6,16 @@ function lookup(sp) {
     let base = 10;
     if (sp < 0) 
         sp =0;
-    multiples = sp /2;
+    let multiples = sp /2;
     if (!isEven(sp))
         base = 15;
     
-    return base * ( 2 ** multiples)
+    let answer = base * ( 2 ** multiples)
+    return {
+        base,
+        multiples,
+        answer
+    }
 }
 
 module.exports = {
