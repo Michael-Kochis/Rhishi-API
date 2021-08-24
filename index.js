@@ -8,7 +8,7 @@ if (process.env.DATABASE_URL) {
     }
 }
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 8080;
 
 const sayHello = () => {
     console.log(`server is listening on port: ${port}`);
