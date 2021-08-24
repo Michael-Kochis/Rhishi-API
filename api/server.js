@@ -24,7 +24,7 @@ server.use("/api/users", [verifyToken], userRouter);
 server.use("/api/persona", [verifyToken], personaRouter);
 server.use("/api/roller", [verifyToken], rollerRouter);
 
-server.use("/", (req,res) => {
+server.get("/", (req,res) => {
     res.status(201).json({message: "Yip, yip, Appa!"});
 })
 
