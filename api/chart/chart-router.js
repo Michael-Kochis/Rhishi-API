@@ -5,7 +5,7 @@ const {verifyRV} = require('./chart-middleware');
 const router = express.Router();
 
 router.post("/", [verifyRV], (req, res, next) => {
-    const { RV } = req.body;
+    const { rv } = req.body;
 
     returnThis = chart.chartRoll(rv);
     res.status(200).json(returnThis)
