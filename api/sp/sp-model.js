@@ -6,7 +6,7 @@ function lookup(sp) {
     let base = 10;
     if (sp < 0) 
         sp =0;
-    let multiples = floor(sp /2);
+    let multiples = Math.floor(sp /2);
     if (!isEven(sp))
         base = 15;
     
