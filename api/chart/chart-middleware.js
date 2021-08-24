@@ -1,5 +1,5 @@
 function verifyRV(req, res, next) {
-    const {rv} = req.body;
+    const {RV} = req.body;
 
     if (RV == undefined || RV == null) {
         res.status(403).json({
