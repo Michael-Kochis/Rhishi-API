@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const authRouter = require('./auth/auth-routes');
+const chartRouter = require('./chart/chart-router');
 const personaRouter = require('./persona/persona-router');
 const rollerRouter = require('./roller/roller-router');
 const userRouter = require('./users/users-router');
@@ -18,6 +19,7 @@ server.use(cors() );
 server.use(logger);
 
 server.use("/api/auth", authRouter);
+server.use("/api/chart", [verifyToken], chartRouter);
 server.use("/api/users", [verifyToken], userRouter);
 server.use("/api/persona", [verifyToken], personaRouter);
 server.use("/api/roller", [verifyToken], rollerRouter);

@@ -1,0 +1,16 @@
+const express = require('express');
+
+const chart = require('./chart-model');
+const {verifyRV} = require('./chart-middleware');
+const router = express.Router();
+
+router.post("/", [verifyRV], (req, res, next) => {
+    const { RV } = req.body;
+
+    returnThis = chart.chartRoll(rv);
+    res.status(200).json(returnThis)
+
+    if (0 == 1) next();
+})
+
+module.exports = router;
