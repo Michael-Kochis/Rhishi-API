@@ -12,9 +12,8 @@ function lookup(sp) {
     
     let answer = base * ( 2 ** multiples)
     return {
-        base,
-        multiples,
-        answer
+        high: answer,
+        low: answer/5
     }
 }
 
