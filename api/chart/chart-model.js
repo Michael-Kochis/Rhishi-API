@@ -35,7 +35,7 @@ function findChartLine(refValue) {
     if (refValue >= 6)
         refValue = 6;
 
-    return chart[refValue-6];
+    return chart[refValue+6];
 }
 
 function findColor(line, roll) {

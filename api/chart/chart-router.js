@@ -4,8 +4,7 @@ const chart = require('./chart-model');
 //const {verifyRV} = require('./chart-middleware');
 const router = express.Router();
 
-router.post("/", (req, res, next) => {
-    debugger;
+router.post('/', (req, res, next) => {
     const { rv } = req.body;
 
     returnThis = chart.chartRoll(rv);
