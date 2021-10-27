@@ -38,7 +38,6 @@ function verifyToken(req, res, next) {
     } else { 
         res.status(401).json({ message: "improper or expired auth token"})
     }
-    next();
 }
 
 module.exports = {
