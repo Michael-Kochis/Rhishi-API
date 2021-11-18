@@ -22,6 +22,9 @@ router.get('/name/:personaName', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const neoPersona = req.body;
+    let { id } = req.decoded;
+    neoPersona.ownerID = id;
+
     persona.createPersona(neoPersona)
         .then(resp => {
           res.status(200).json(resp);
