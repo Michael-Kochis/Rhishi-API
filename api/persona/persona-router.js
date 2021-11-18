@@ -20,4 +20,12 @@ router.get('/name/:personaName', (req, res, next) => {
         }).catch(next);
 })
 
+router.post('/', (req, res, next) => {
+    const neoPersona = req.body;
+    persona.createPersona(neoPersona)
+        .then(resp => {
+          res.status(200).json(resp);
+        }).catch(next)
+})
+
 module.exports = router;
