@@ -3,6 +3,7 @@ const db = require('../../data/dbConfig');
 module.exports = {
     findPersona,
     findPersonaByID,
+    findPersonaByName,
     findPersonaByOwnerID,
     createPersona,
     removePersona,
@@ -13,8 +14,8 @@ module.exports = {
 async function createPersona(neoPersona) {
     neoPersona.personaID = Date.now();
 
-    return await db('persona')
-        .insert(neoPersona, ['personaID','ownerID', 'personaName'])
+    return db('persona')
+        .insert(neoPersona, ['personaID', 'ownerID', 'personaName']);
 }
 
 // findAll
@@ -25,21 +26,26 @@ async function findPersona() {
 // findByID
 async function findPersonaByID(key) { 
     key = parseInt(key);
-    return await db("persona")
+    return db("persona")
         .where({personaID: key})
         .first();
 }
 
-// findByUsername
+// findByOwnerID
 async function findPersonaByOwnerID(key) { 
-    return await db("persona")
-        .where({ownerID: key})
+    return db("persona")
+        .where({ownerID: key});
+}
+
+async function findPersonaByName(key) {
+    return db("persona")
+        .where({personaName: key});
 }
 
 //removePersona
 async function removePersona(key) {
     key = parseInt(key);
-    return await db("persona")
+    return db("persona")
         .where({personaID: key})
         .del();
 }
@@ -47,7 +53,7 @@ async function removePersona(key) {
 //updatePersona
 async function updatePersona(neoPersona) {
     let { personaID } = neoPersona;
-    return await db("persona")
+    return db("persona")
         .where(personaID)
-        .update(neoPersona)
+        .update(neoPersona);
 }
