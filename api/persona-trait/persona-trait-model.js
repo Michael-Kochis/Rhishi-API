@@ -15,7 +15,7 @@ async function createPersonaTrait(neoPersonaTrait) {
     console.log(neoPersonaTrait);
 
     return db('persona_traits')
-        .insert(neoPersonaTrait, ['personaTraitID', 'personaID', 'traitID', 'bonus', 'max']);
+        .insert([neoPersonaTrait.personaTraitID, neoPersonaTrait], ['personaTraitID', 'personaID', 'traitID', 'bonus', 'max']);
 }
 
 async function findPersonaTrait() {
