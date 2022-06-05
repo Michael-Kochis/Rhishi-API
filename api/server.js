@@ -24,7 +24,7 @@ server.use("/api/auth", authRouter);
 server.use("/api/chart", [verifyToken], chartRouter);
 server.use("/api/users", [verifyToken], userRouter);
 server.use("/api/persona", [verifyToken], personaRouter);
-server.use("/api/persona-router", [verifyToken], personaTraitRouter);
+server.use("/api/persona-trait", [verifyToken], personaTraitRouter);
 server.use("/api/roller", [verifyToken], rollerRouter);
 server.use("/api/sp", spRouter);
 
