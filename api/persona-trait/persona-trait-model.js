@@ -11,10 +11,6 @@ module.exports = {
 }
 
 async function createPersonaTrait(neoPersonaTrait) {
-    neoPersonaTrait.personaTraitID = Date.now();
-    Object.defineProperty(neoPersonaTrait, "personaTraitID", {"personaTraitID": Date.now()});
-    console.log(neoPersonaTrait);
-
     return db('persona_traits')
         .insert(neoPersonaTrait, ['personaTraitID', 'personaID', 'traitID', 'bonus', 'max']);
 }
