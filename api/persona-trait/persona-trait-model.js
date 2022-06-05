@@ -11,8 +11,8 @@ module.exports = {
 }
 
 async function createPersonaTrait(neoPersonaTrait) {
-    personaTraitID = Date.now();
-    Object.defineProperty(neoPersonaTrait, personaTraitID);
+    PTID = {personaTraitID: Date.now()};
+    Object.defineProperty(neoPersonaTrait, PTID);
     console.log(neoPersonaTrait);
 
     return db('persona_traits')
