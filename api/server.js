@@ -31,7 +31,7 @@ server.use("/api/sp", spRouter);
 server.get("/", (req,res) => {
     res.status(201).json({message: "Yip, yip, Appa!"});
 })
-
+ 
 // server.use('*', (req, res) => {
 //     res.status(404).json({
 //         message: "That endpoint is not set up yet."
