@@ -22,9 +22,7 @@ router.get('/persona/:personaID', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const neoPersonaTrait = req.body;
-    let { id } = req.decoded;
-    neoPersonaTrait.personaTraitID = Date.now();
-
+    
     persona.createPersonaTrait(neoPersonaTrait)
         .then(resp => {
           res.status(200).json(resp);
