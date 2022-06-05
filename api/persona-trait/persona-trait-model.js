@@ -11,11 +11,12 @@ module.exports = {
 }
 
 async function createPersonaTrait(neoPersonaTrait) {
-    neoPersonaTrait['personaTraitID'] = Date.now();
+    neoPersonaTrait.personaTraitID = Date.now();
+    Object.defineProperty(neoPersonaTrait, 'personaTraitID', Date.now());
     console.log(neoPersonaTrait);
 
     return db('persona_traits')
-        .insert([neoPersonaTrait.personaTraitID, neoPersonaTrait], ['personaTraitID', 'personaID', 'traitID', 'bonus', 'max']);
+        .insert(neoPersonaTrait, ['personaTraitID', 'personaID', 'traitID', 'bonus', 'max']);
 }
 
 async function findPersonaTrait() {
