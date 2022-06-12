@@ -6,6 +6,7 @@ module.exports = {
     findPersonaTraitByPersonaID,
     findPersonaTraitByTraitID,
     createPersonaTrait,
+    makePersonaRepairMerchant,
     removePersonaTrait,
     updatePersonaTrait
 }
@@ -42,6 +43,24 @@ async function removePersonaTrait(key) {
         .where({personaTraitID: key})
         .del();
 }
+
+async function makePersonaRepairMerchant(key) { 
+    for (i=2; i<=20; i++) {
+        time = Date.now();
+        nextTrait = {
+            personaTraitID: time,
+            personaID: key,
+            traitID: i,
+            bonus: 1,
+            max: 3
+        }
+        await createPersonaTrait(nextTrait);
+    }
+    return db("persona_traits")
+        .where({personaID: key});
+}
+
+
 
 //updatePersona
 async function updatePersonaTrait(neoPersonaTrait) {
