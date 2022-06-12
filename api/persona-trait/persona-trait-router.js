@@ -30,4 +30,13 @@ router.post('/', (req, res, next) => {
         }).catch(next)
 })
 
+router.post('/repairMerchant/:personaID', (req, res, next) => {
+    const {personaID} = req.params;
+
+    persona.makePersonaRepairMerchant(personaID)
+        .then(resp => {
+            res.status(201).json(resp)
+        }).catch(next);
+})
+
 module.exports = router;
