@@ -30,8 +30,8 @@ router.post('/', (req, res, next) => {
         }).catch(next)
 })
 
-router.post('/repairMerchant/:personaID', (req, res, next) => {
-    const {personaID} = req.params;
+router.post('/repairMerchant', (req, res, next) => {
+    const {personaID} = req.body;
 
     persona.makePersonaRepairMerchant(personaID)
         .then(resp => {
